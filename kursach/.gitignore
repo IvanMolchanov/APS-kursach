@@ -5,7 +5,7 @@ target/
 .idea/
 kursach/.idea/
 kursach/.mvn/
-
+kursach/src/config.cfg
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

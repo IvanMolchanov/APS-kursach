@@ -16,6 +16,7 @@ public class GeneratorRequests {
     private final long startDiffer = 5300;
     private final long startDuration = 20000;
     static public int countSources;
+    private int sourceNumber = -1;
 
     {
         number = 1;
@@ -27,10 +28,11 @@ public class GeneratorRequests {
         long differ = startDiffer + key.nextInt(boundDiffer);
         double rnd2 = key.nextDouble();
         long duration = startDuration + (long) (Math.log(1 - rnd2) * boundDuration);
+        sourceNumber = (sourceNumber + 1) % countSources;
         return new Request(number++,
                 now.plus(differ, differUnit),
                 Instant.EPOCH.plus(duration, durationUnit),
-                key.nextInt(countSources));
+                sourceNumber);
     }
 
     boolean hasNext() {
